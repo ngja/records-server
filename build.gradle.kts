@@ -30,6 +30,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    implementation("com.github.f4b6a3:tsid-creator:5.2.6")
+
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -38,6 +41,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:6.0.0.M1")
     runtimeOnly("io.kotest:kotest-assertions-core:6.0.0.M1")
     runtimeOnly("io.kotest:kotest-property:6.0.0.M1")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.3.0")
 }
 
 kotlin {

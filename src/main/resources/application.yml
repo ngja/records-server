@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: records-server
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: org.postgresql.Driver
