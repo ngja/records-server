@@ -1,7 +1,7 @@
 package com.hansol.recordsserver.infrastructure.person.persistence.entity
 
 import com.hansol.recordsserver.application.person.command.PersonCreateCommand
-import com.hansol.recordsserver.application.person.dto.PersonDto
+import com.hansol.recordsserver.application.person.domain.Person
 import com.hansol.recordsserver.common.enums.Gender
 import com.hansol.recordsserver.common.utils.IdGenerator
 import jakarta.persistence.*
@@ -34,7 +34,7 @@ class PersonJpaEntity(
     val height: Int,
 ) {
 
-    fun toDto(): PersonDto = PersonDto(
+    fun toDto(): Person = Person(
         id = this.id,
         surname = this.surname,
         forename = this.forename,
