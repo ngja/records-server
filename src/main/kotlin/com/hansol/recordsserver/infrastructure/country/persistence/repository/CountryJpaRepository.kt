@@ -4,4 +4,5 @@ import com.hansol.recordsserver.infrastructure.country.persistence.entity.Countr
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface CountryJpaRepository : JpaRepository<CountryJpaEntity, Long> {
+    fun findByIdIn(ids: Collection<Long>): List<CountryJpaEntity>
 }

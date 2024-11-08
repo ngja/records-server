@@ -11,7 +11,7 @@ data class PersonCreateRequest(
     val gender: String,
     val birthday: String,
     val height: Int,
-    val nationalities: List<String>,
+    val nationalityIds: List<Long>,
     val educations: List<String>,
 ) {
     fun toCommand(): PersonCreateCommand {
@@ -22,7 +22,7 @@ data class PersonCreateRequest(
             gender = Gender.from(gender),
             birthday = DateTimeParser.toDate(birthday).atStartOfDay(),
             height = height,
-            nationalities = nationalities,
+            nationalityIds = nationalityIds,
             educations = educations,
         )
     }

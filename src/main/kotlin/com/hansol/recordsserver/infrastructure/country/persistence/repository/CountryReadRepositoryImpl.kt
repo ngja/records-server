@@ -14,4 +14,8 @@ class CountryReadRepositoryImpl(
     override fun getAllCountries(): List<Country> {
         return countryJpaRepository.findAll().map { it.toCountry() }
     }
+
+    override fun findByIds(ids: Collection<Long>): List<Country> {
+        return countryJpaRepository.findByIdIn(ids).map { it.toCountry() }
+    }
 }

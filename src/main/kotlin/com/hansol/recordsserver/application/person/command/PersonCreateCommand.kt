@@ -11,7 +11,7 @@ data class PersonCreateCommand(
     val gender: Gender,
     val birthday: LocalDateTime,
     val height: Int,
-    val nationalities: List<String>,
+    val nationalityIds: List<Long>,
     val educations: List<String>,
 ) {
     init {

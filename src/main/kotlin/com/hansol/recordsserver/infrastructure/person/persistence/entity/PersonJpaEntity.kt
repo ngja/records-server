@@ -1,14 +1,16 @@
 package com.hansol.recordsserver.infrastructure.person.persistence.entity
 
-import com.hansol.recordsserver.application.person.command.PersonCreateCommand
 import com.hansol.recordsserver.application.person.domain.Person
 import com.hansol.recordsserver.common.enums.Gender
 import com.hansol.recordsserver.common.utils.IdGenerator
+import com.hansol.recordsserver.infrastructure.common.persistence.entity.AuditBaseEntity
 import jakarta.persistence.*
+import org.hibernate.annotations.SQLRestriction
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "person")
+@SQLRestriction("deleted = false")
 class PersonJpaEntity(
 
     @Id
@@ -32,28 +34,18 @@ class PersonJpaEntity(
 
     @Column(nullable = false)
     val height: Int,
-) {
-
-    fun toDto(): Person = Person(
-        id = this.id,
-        surname = this.surname,
-        forename = this.forename,
-        name = this.name,
-        gender = this.gender,
-        birthday = this.birthday,
-        height = this.height
-    )
+) : AuditBaseEntity() {
 
     companion object {
-        fun from(personCreateCommand: PersonCreateCommand): PersonJpaEntity {
+        fun from(person: Person): PersonJpaEntity {
             return PersonJpaEntity(
                 id = IdGenerator.generate(),
-                surname = personCreateCommand.surname,
-                forename = personCreateCommand.forename,
-                name = personCreateCommand.name,
-                gender = personCreateCommand.gender,
-                birthday = personCreateCommand.birthday,
-                height = personCreateCommand.height,
+                surname = person.surname,
+                forename = person.forename,
+                name = person.name,
+                gender = person.gender,
+                birthday = person.birthday,
+                height = person.height,
             )
         }
     }
