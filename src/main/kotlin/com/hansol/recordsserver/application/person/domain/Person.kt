@@ -3,7 +3,7 @@ package com.hansol.recordsserver.application.person.domain
 import com.hansol.recordsserver.application.country.domain.Country
 import com.hansol.recordsserver.application.person.command.PersonCreateCommand
 import com.hansol.recordsserver.common.enums.Gender
-import com.hansol.recordsserver.common.utils.IdGenerator
+import com.hansol.recordsserver.common.utils.IdUtils
 import java.time.LocalDateTime
 
 class Person(
@@ -18,7 +18,7 @@ class Person(
 ) {
 
     constructor(command: PersonCreateCommand, nationalities: List<Country>) : this(
-        id = IdGenerator.generate(),
+        id = IdUtils.generate(),
         surname = command.surname,
         forename = command.forename,
         name = command.name,

@@ -2,7 +2,7 @@ package com.hansol.recordsserver.infrastructure.person.persistence.entity
 
 import com.hansol.recordsserver.application.person.domain.Person
 import com.hansol.recordsserver.common.enums.Gender
-import com.hansol.recordsserver.common.utils.IdGenerator
+import com.hansol.recordsserver.common.utils.IdUtils
 import com.hansol.recordsserver.infrastructure.common.persistence.entity.AuditBaseEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.SQLRestriction
@@ -39,7 +39,7 @@ class PersonJpaEntity(
     companion object {
         fun from(person: Person): PersonJpaEntity {
             return PersonJpaEntity(
-                id = IdGenerator.generate(),
+                id = IdUtils.generate(),
                 surname = person.surname,
                 forename = person.forename,
                 name = person.name,

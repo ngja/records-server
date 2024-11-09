@@ -2,7 +2,7 @@ package com.hansol.recordsserver.presentation.person.dto.response
 
 import com.hansol.recordsserver.application.person.domain.Person
 import com.hansol.recordsserver.common.utils.DateTimeParser
-import com.hansol.recordsserver.common.utils.IdGenerator
+import com.hansol.recordsserver.common.utils.IdUtils
 
 data class PersonCreateResponse(
     val id: String,
@@ -17,7 +17,7 @@ data class PersonCreateResponse(
     companion object {
         fun from(person: Person): PersonCreateResponse {
             return PersonCreateResponse(
-                id = IdGenerator.encode(person.id),
+                id = IdUtils.encode(person.id),
                 surname = person.surname,
                 forename = person.forename,
                 name = person.name,

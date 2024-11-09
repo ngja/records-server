@@ -3,7 +3,7 @@ package com.hansol.recordsserver.common.utils
 import com.github.f4b6a3.tsid.Tsid
 import com.github.f4b6a3.tsid.TsidCreator
 
-object IdGenerator {
+object IdUtils {
     fun generate(): Long {
         return TsidCreator.getTsid().toLong()
     }
