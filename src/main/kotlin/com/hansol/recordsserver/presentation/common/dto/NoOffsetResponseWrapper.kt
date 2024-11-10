@@ -5,7 +5,7 @@ data class NoOffsetResponseWrapper<T : Cursored>(
     val hasNext: Boolean,
     val before: String?,
     val next: String?,
-    val size: Int,
+    val size: Long,
 ) {
-    constructor(results: List<T>, hasNext: Boolean) : this(results, hasNext, results.first().cursor(), results.last().cursor(), results.size)
+    constructor(results: List<T>, hasNext: Boolean) : this(results, hasNext, results.first().cursor(), results.last().cursor(), results.size.toLong())
 }

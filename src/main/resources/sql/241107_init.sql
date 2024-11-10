@@ -9,3 +9,17 @@ CREATE TABLE country
     created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE person
+(
+    id         BIGINT PRIMARY KEY,
+    surname    VARCHAR(100) NOT NULL,
+    forename   VARCHAR(100) NOT NULL,
+    name       VARCHAR(200) NOT NULL,
+    gender     VARCHAR(10)  NOT NULL,
+    birthday   TIMESTAMP    NOT NULL,
+    height     INT          NULL,
+    deleted    BOOLEAN   DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

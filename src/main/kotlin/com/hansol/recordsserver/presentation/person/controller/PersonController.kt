@@ -27,6 +27,6 @@ class PersonController(
     fun search(request: PersonSearchRequest): NoOffsetResponseWrapper<PersonSearchResponse> {
         val searchResults = personSearchService.search(request.toCommand())
         val results = searchResults.map { PersonSearchResponse.from(it) }
-        return NoOffsetResponseWrapper(results, request.size == results.size)
+        return NoOffsetResponseWrapper(results, request.size == results.size.toLong())
     }
 }

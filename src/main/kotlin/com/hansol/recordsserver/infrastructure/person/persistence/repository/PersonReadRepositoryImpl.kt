@@ -10,6 +10,13 @@ class PersonReadRepositoryImpl(
     private val personJpaRepository: PersonJpaRepository,
 ) : PersonReadRepository {
     override fun search(command: PersonSearchCommand): List<PersonSearchDomain> {
-        TODO("Not yet implemented")
+        val personJpaEntities = personJpaRepository.search(command)
+        return personJpaEntities.map { PersonSearchDomain(
+            id = it.id,
+            name = it.name,
+            gender = it.gender,
+            birthday = it.birthday,
+            height = it.height,
+        ) }
     }
 }
