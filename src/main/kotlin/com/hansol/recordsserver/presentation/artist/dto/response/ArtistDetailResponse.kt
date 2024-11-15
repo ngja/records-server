@@ -2,6 +2,7 @@ package com.hansol.recordsserver.presentation.artist.dto.response
 
 import com.hansol.recordsserver.application.artist.model.ArtistDetailModel
 import com.hansol.recordsserver.common.utils.DateTimeParser
+import com.hansol.recordsserver.common.utils.IdUtils
 import com.hansol.recordsserver.common.vo.Image
 
 data class ArtistDetailResponse(
@@ -15,7 +16,7 @@ data class ArtistDetailResponse(
 ) {
 
     constructor(artistDetailModel: ArtistDetailModel) : this(
-        id = artistDetailModel.id,
+        id = IdUtils.encode(artistDetailModel.id),
         name = artistDetailModel.name,
         description = artistDetailModel.description,
         debutDate = DateTimeParser.toString(artistDetailModel.debutDate.toLocalDate()),

@@ -8,7 +8,7 @@ import com.hansol.recordsserver.common.vo.Image
 import java.time.LocalDateTime
 
 data class ArtistDetailModel(
-    val id: String,
+    val id: Long,
     val name: String,
     val description: String,
     val debutDate: LocalDateTime,

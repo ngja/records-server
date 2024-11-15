@@ -5,7 +5,7 @@ import com.hansol.recordsserver.common.enums.ArtistStatus
 import java.time.LocalDateTime
 
 data class ArtistSearchModel(
-    val id: String,
+    val id: Long,
     val name: String,
     val debutDate: LocalDateTime,
     val status: ArtistStatus,
