@@ -3,7 +3,7 @@ package com.hansol.recordsserver.presentation.artist.dto.response
 import com.hansol.recordsserver.application.artist.model.ArtistDetailModel
 import com.hansol.recordsserver.common.utils.DateTimeParser
 import com.hansol.recordsserver.common.utils.IdUtils
-import com.hansol.recordsserver.common.vo.Image
+import com.hansol.recordsserver.presentation.common.dto.ImageResponse
 
 data class ArtistDetailResponse(
     val id: String,
@@ -11,8 +11,10 @@ data class ArtistDetailResponse(
     val description: String,
     val debutDate: String,
     val status: String,
-    val mainImage: Image,
-    val members: List<MemberResponse>,
+    val mainImage: ImageResponse,
+    val members: List<ArtistMemberResponse>,
+
+    val records: List<ArtistRecordResponse>,
 ) {
 
     constructor(artistDetailModel: ArtistDetailModel) : this(
@@ -21,7 +23,8 @@ data class ArtistDetailResponse(
         description = artistDetailModel.description,
         debutDate = DateTimeParser.toString(artistDetailModel.debutDate.toLocalDate()),
         status = artistDetailModel.status.label,
-        mainImage = artistDetailModel.mainImage,
-        members = artistDetailModel.members.map { MemberResponse(it) },
+        mainImage = ImageResponse(artistDetailModel.mainImage),
+        members = artistDetailModel.members.map { ArtistMemberResponse(it) },
+        records = artistDetailModel.records.map { ArtistRecordResponse(it) }
     )
 }

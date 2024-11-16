@@ -4,7 +4,7 @@ import com.hansol.recordsserver.application.artist.domain.Member
 import com.hansol.recordsserver.common.utils.IdUtils
 import com.hansol.recordsserver.common.vo.Image
 
-data class MemberResponse(
+data class ArtistMemberResponse(
     val id: String,
     val name: String,
     val image: Image,
