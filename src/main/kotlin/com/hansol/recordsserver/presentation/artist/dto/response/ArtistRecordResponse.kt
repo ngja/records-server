@@ -17,6 +17,6 @@ data class ArtistRecordResponse(
         name = record.name,
         releaseDate = DateTimeParser.toString(record.releaseDate.toLocalDate()),
         tags = record.tags,
-        iamge = ImageResponse(record.image)
+        image = ImageResponse(record.image),
     )
 }

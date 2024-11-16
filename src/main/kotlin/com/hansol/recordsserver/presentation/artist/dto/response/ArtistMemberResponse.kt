@@ -2,16 +2,16 @@ package com.hansol.recordsserver.presentation.artist.dto.response
 
 import com.hansol.recordsserver.application.artist.domain.Member
 import com.hansol.recordsserver.common.utils.IdUtils
-import com.hansol.recordsserver.common.vo.Image
+import com.hansol.recordsserver.presentation.common.dto.ImageResponse
 
 data class ArtistMemberResponse(
     val id: String,
     val name: String,
-    val image: Image,
+    val image: ImageResponse,
 ) {
     constructor(member: Member) : this(
         id = IdUtils.encode(member.id),
         name = member.name,
-        image = member.image,
+        image = ImageResponse(member.image),
     )
 }
