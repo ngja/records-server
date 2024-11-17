@@ -12,10 +12,13 @@ data class ArtistDetailResponse(
     val debutDate: String,
     val status: String,
     val mainImage: ImageResponse,
-    val members: List<ArtistMemberResponse>,
+    val members: List<ArtistDetailMemberResponse>,
 
-    val records: List<ArtistRecordResponse>,
-) {
+    val records: List<ArtistDetailRecordResponse>,
+    val songs: List<ArtistDetailSongResponse>,
+    val mvs: List<ArtistDetailMvResponse>,
+    val concerts: List<ArtistDetailConcertResponse>,
+    ) {
 
     constructor(artistDetailModel: ArtistDetailModel) : this(
         id = IdUtils.encode(artistDetailModel.id),
@@ -24,7 +27,10 @@ data class ArtistDetailResponse(
         debutDate = DateTimeParser.toString(artistDetailModel.debutDate.toLocalDate()),
         status = artistDetailModel.status.label,
         mainImage = ImageResponse(artistDetailModel.mainImage),
-        members = artistDetailModel.members.map { ArtistMemberResponse(it) },
-        records = artistDetailModel.records.map { ArtistRecordResponse(it) }
+        members = artistDetailModel.members.map { ArtistDetailMemberResponse(it) },
+        records = artistDetailModel.records.map { ArtistDetailRecordResponse(it) },
+        songs = artistDetailModel.songs.map { ArtistDetailSongResponse(it) },
+        mvs = artistDetailModel.mvs.map { ArtistDetailMvResponse(it) },
+        concerts = artistDetailModel.concerts.map { ArtistDetailConcertResponse(it) },
     )
 }
