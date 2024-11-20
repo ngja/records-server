@@ -5,12 +5,12 @@ import com.hansol.recordsserver.application.activity.domain.Concerts
 import com.hansol.recordsserver.application.artist.domain.Artist
 import com.hansol.recordsserver.application.artist.domain.Member
 import com.hansol.recordsserver.application.artist.domain.Members
-import com.hansol.recordsserver.application.record.domain.Record
-import com.hansol.recordsserver.application.record.domain.Records
-import com.hansol.recordsserver.application.song.domain.Mv
-import com.hansol.recordsserver.application.song.domain.Mvs
-import com.hansol.recordsserver.application.song.domain.Song
-import com.hansol.recordsserver.application.song.domain.Songs
+import com.hansol.recordsserver.application.music.domain.Album
+import com.hansol.recordsserver.application.music.domain.Albums
+import com.hansol.recordsserver.application.music.domain.Mv
+import com.hansol.recordsserver.application.music.domain.Mvs
+import com.hansol.recordsserver.application.music.domain.Song
+import com.hansol.recordsserver.application.music.domain.Songs
 import com.hansol.recordsserver.common.enums.ArtistStatus
 import com.hansol.recordsserver.common.vo.Image
 import java.time.LocalDateTime
@@ -24,7 +24,7 @@ data class ArtistDetailModel(
     val mainImage: Image,
     val members: List<Member>,
 
-    val records: List<Record>,
+    val albums: List<Album>,
     val songs: List<Song>,
     val mvs: List<Mv>,
     val concerts: List<Concert>,
@@ -32,7 +32,7 @@ data class ArtistDetailModel(
     constructor(
         artist: Artist,
         members: Members,
-        records: Records,
+        albums: Albums,
         songs: Songs,
         mvs: Mvs,
         concerts: Concerts,
@@ -45,7 +45,7 @@ data class ArtistDetailModel(
         mainImage = artist.mainImage,
         members = members.members,
 
-        records = records.records,
+        albums = albums.albums,
         songs = songs.songs,
         mvs = mvs.mvs,
         concerts = concerts.concerts,

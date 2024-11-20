@@ -1,6 +1,6 @@
 package com.hansol.recordsserver.presentation.artist.dto.response
 
-import com.hansol.recordsserver.application.song.domain.Song
+import com.hansol.recordsserver.application.music.domain.Song
 import com.hansol.recordsserver.common.utils.DateTimeParser
 import com.hansol.recordsserver.common.utils.IdUtils
 
@@ -15,7 +15,7 @@ data class ArtistDetailSongResponse(
 ) {
     constructor(song: Song) : this(
         id = IdUtils.encode(song.id),
-        record = song.record.name,
+        record = song.album.name,
         title = song.title,
         lyrics = song.lyrics,
         composition = song.composition,

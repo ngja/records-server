@@ -39,7 +39,7 @@ class PersonJpaEntity(
     companion object {
         fun from(person: Person): PersonJpaEntity {
             return PersonJpaEntity(
-                id = IdUtils.generate(),
+                id = person.id,
                 surname = person.surname,
                 forename = person.forename,
                 name = person.name,

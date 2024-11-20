@@ -10,6 +10,8 @@ class ImageJpaEntity(
     val imagePath: String,
 ) {
 
+    constructor(image: Image) : this(image.width, image.height, image.path)
+
     fun toImage(): Image {
         return Image(
             width = imageWidth,

@@ -1,6 +1,6 @@
-package com.hansol.recordsserver.application.song.repository
+package com.hansol.recordsserver.application.music.repository
 
-import com.hansol.recordsserver.application.song.domain.Mvs
+import com.hansol.recordsserver.application.music.domain.Mvs
 import org.springframework.stereotype.Repository
 
 @Repository

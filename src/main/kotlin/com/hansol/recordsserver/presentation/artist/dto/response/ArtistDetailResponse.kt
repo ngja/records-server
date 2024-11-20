@@ -14,7 +14,7 @@ data class ArtistDetailResponse(
     val mainImage: ImageResponse,
     val members: List<ArtistDetailMemberResponse>,
 
-    val records: List<ArtistDetailRecordResponse>,
+    val albums: List<ArtistDetailAlbumResponse>,
     val songs: List<ArtistDetailSongResponse>,
     val mvs: List<ArtistDetailMvResponse>,
     val concerts: List<ArtistDetailConcertResponse>,
@@ -28,7 +28,7 @@ data class ArtistDetailResponse(
         status = artistDetailModel.status.label,
         mainImage = ImageResponse(artistDetailModel.mainImage),
         members = artistDetailModel.members.map { ArtistDetailMemberResponse(it) },
-        records = artistDetailModel.records.map { ArtistDetailRecordResponse(it) },
+        albums = artistDetailModel.albums.map { ArtistDetailAlbumResponse(it) },
         songs = artistDetailModel.songs.map { ArtistDetailSongResponse(it) },
         mvs = artistDetailModel.mvs.map { ArtistDetailMvResponse(it) },
         concerts = artistDetailModel.concerts.map { ArtistDetailConcertResponse(it) },

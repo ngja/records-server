@@ -1,11 +1,10 @@
-package com.hansol.recordsserver.application.song.domain
+package com.hansol.recordsserver.application.music.domain
 
-import com.hansol.recordsserver.application.record.domain.Record
 import java.time.LocalDateTime
 
 class Song(
     val id: Long,
-    val record: Record,
+    val album: Album,
     val title: String,
     val lyrics: String,
     val composition: String,
