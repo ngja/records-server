@@ -10,6 +10,6 @@ class AlbumReadRepositoryImpl(
 ) : AlbumReadRepository {
     override fun findByArtistId(artistId: Long, limit: Long, cursor: Long?): Albums {
         val entities = albumJpaRepository.findByArtistId(artistId, limit, cursor)
-        return Albums(entities.map { it.to() })
+        return Albums(entities.map { it.toAlbum() })
     }
 }

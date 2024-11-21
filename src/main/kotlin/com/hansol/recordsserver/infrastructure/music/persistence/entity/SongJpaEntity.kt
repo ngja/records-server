@@ -1,6 +1,7 @@
 package com.hansol.recordsserver.infrastructure.music.persistence.entity
 
 import com.hansol.recordsserver.application.music.domain.Song
+import com.hansol.recordsserver.infrastructure.common.persistence.entity.AuditBaseEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.SQLRestriction
 import java.time.LocalDateTime
@@ -30,7 +31,7 @@ class SongJpaEntity(
 
     @Column(nullable = false)
     val releaseDate: LocalDateTime,
-) {
+) : AuditBaseEntity() {
 
     companion object {
         fun from(song: Song): SongJpaEntity {
@@ -44,5 +45,17 @@ class SongJpaEntity(
                 releaseDate = song.releaseDate,
             )
         }
+    }
+
+    fun toSong(): Song {
+        return Song(
+            id = id,
+            album = album.toAlbum(),
+            title = title,
+            lyrics = lyrics,
+            composition = composition,
+            arrangement = arrangement,
+            releaseDate = releaseDate,
+        )
     }
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface MvReadRepository {
-    fun findByArtistIdLimit(artistId: Long, limit: Long): Mvs
+    fun findByArtistId(artistId: Long, limit: Long, cursor: Long? = null): Mvs
 }

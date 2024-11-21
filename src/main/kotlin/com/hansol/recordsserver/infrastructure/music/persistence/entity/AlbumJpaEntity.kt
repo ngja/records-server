@@ -1,6 +1,7 @@
 package com.hansol.recordsserver.infrastructure.music.persistence.entity
 
 import com.hansol.recordsserver.application.music.domain.Album
+import com.hansol.recordsserver.infrastructure.common.persistence.entity.AuditBaseEntity
 import com.hansol.recordsserver.infrastructure.common.persistence.entity.ImageJpaEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.SQLRestriction
@@ -27,7 +28,7 @@ class AlbumJpaEntity(
 
     @Embedded
     val image: ImageJpaEntity,
-) {
+) : AuditBaseEntity() {
 
     companion object {
         fun from(album: Album): AlbumJpaEntity {
@@ -42,7 +43,7 @@ class AlbumJpaEntity(
         }
     }
 
-    fun to(): Album {
+    fun toAlbum(): Album {
         return Album(
             id = id,
             artistId = artistId,

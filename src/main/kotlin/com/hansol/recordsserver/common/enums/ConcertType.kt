@@ -7,4 +7,5 @@ enum class ConcertType(
     CONCERT("콘서트"),
     FAN_CONCERT("팬콘서트"),
     FAN_MEETING("팬미팅"),
+    FESTIVAL("페스티벌"),
 }

@@ -12,10 +12,11 @@ class AlbumJpaRepositoryImpl(
     override fun findByArtistId(artistId: Long, limit: Long, cursor: Long?): List<AlbumJpaEntity> {
         return jpaQueryFactory.selectFrom(albumJpaEntity)
             .where(
-                cursor?.let { albumJpaEntity.artistId.lt(cursor) }
+                albumJpaEntity.artistId.eq(artistId),
+                cursor?.let { albumJpaEntity.id.lt(cursor) }
             )
-            .limit(limit)
             .orderBy(albumJpaEntity.id.desc())
+            .limit(limit)
             .fetch()
     }
 }

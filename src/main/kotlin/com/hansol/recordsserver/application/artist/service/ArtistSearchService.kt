@@ -16,8 +16,8 @@ class ArtistSearchService(
     private val artistReadRepository: ArtistReadRepository,
     private val memberReadRepository: MemberReadRepository,
     private val albumReadRepository: AlbumReadRepository,
-    private val songRepository: SongReadRepository,
-    private val mvRepository: MvReadRepository,
+    private val songReadRepository: SongReadRepository,
+    private val mvReadRepository: MvReadRepository,
     private val concertReadRepository: ConcertReadRepository,
 ) {
     fun search(command: ArtistSearchCommand): List<ArtistSearchModel> {
@@ -29,9 +29,9 @@ class ArtistSearchService(
         val artist = artistReadRepository.findById(artistId)
         val members = memberReadRepository.findByArtistId(artistId)
         val albums = albumReadRepository.findByArtistId(artistId, 10L)
-        val songs = songRepository.findByArtistIdLimit(artistId, 50L)
-        val mvs = mvRepository.findByArtistIdLimit(artistId, 10L)
-        val concerts = concertReadRepository.findByArtistIdLimit(artistId, 10L)
+        val songs = songReadRepository.findByArtistId(artistId, 50L)
+        val mvs = mvReadRepository.findByArtistId(artistId, 10L)
+        val concerts = concertReadRepository.findByArtistId(artistId, 10L)
         return ArtistDetailModel(artist, members, albums, songs, mvs, concerts)
     }
 }

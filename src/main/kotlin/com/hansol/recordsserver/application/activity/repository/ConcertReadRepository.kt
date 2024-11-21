@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ConcertReadRepository {
-    fun findByArtistIdLimit(artistId: Long, limit: Long): Concerts
+    fun findByArtistId(artistId: Long, limit: Long, cursor: Long? = null): Concerts
 }
