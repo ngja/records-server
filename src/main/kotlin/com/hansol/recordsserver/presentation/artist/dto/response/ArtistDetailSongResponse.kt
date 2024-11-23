@@ -20,6 +20,6 @@ data class ArtistDetailSongResponse(
         lyrics = song.lyrics,
         composition = song.composition,
         arrangement = song.arrangement,
-        releaseDate = DateTimeParser.toString(song.releaseDate.toLocalDate()),
+        releaseDate = DateTimeParser.toString(song.getReleaseDate().toLocalDate()),
     )
 }

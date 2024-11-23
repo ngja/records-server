@@ -5,10 +5,14 @@ import java.time.LocalDateTime
 class Song(
     val id: Long,
     val album: Album,
+    val track: Int,
     val title: String,
     val lyrics: String,
     val composition: String,
     val arrangement: String,
-    val releaseDate: LocalDateTime,
 ) {
+
+    fun getReleaseDate(): LocalDateTime {
+        return album.releaseDate
+    }
 }

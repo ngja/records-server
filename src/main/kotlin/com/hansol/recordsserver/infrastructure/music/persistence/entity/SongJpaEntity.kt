@@ -4,7 +4,6 @@ import com.hansol.recordsserver.application.music.domain.Song
 import com.hansol.recordsserver.infrastructure.common.persistence.entity.AuditBaseEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.SQLRestriction
-import java.time.LocalDateTime
 
 @Entity
 @Table(name = "song")
@@ -18,6 +17,9 @@ class SongJpaEntity(
     val album: AlbumJpaEntity,
 
     @Column(nullable = false)
+    val track: Int,
+
+    @Column(nullable = false)
     val title: String,
 
     @Column(nullable = false)
@@ -29,8 +31,6 @@ class SongJpaEntity(
     @Column(nullable = false)
     val arrangement: String,
 
-    @Column(nullable = false)
-    val releaseDate: LocalDateTime,
 ) : AuditBaseEntity() {
 
     companion object {
@@ -38,11 +38,11 @@ class SongJpaEntity(
             return SongJpaEntity(
                 id = song.id,
                 album = AlbumJpaEntity.from(song.album),
+                track = song.track,
                 title = song.title,
                 lyrics = song.lyrics,
                 composition = song.composition,
                 arrangement = song.arrangement,
-                releaseDate = song.releaseDate,
             )
         }
     }
@@ -51,11 +51,11 @@ class SongJpaEntity(
         return Song(
             id = id,
             album = album.toAlbum(),
+            track = track,
             title = title,
             lyrics = lyrics,
             composition = composition,
             arrangement = arrangement,
-            releaseDate = releaseDate,
         )
     }
 }

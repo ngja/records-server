@@ -15,7 +15,7 @@ class ArtistController(
     private val artistSearchService: ArtistSearchService,
 ) {
     @GetMapping("")
-    fun search(@RequestBody request: ArtistSearchRequest): NoOffsetResponseWrapper<ArtistSearchResponse> {
+    fun search(request: ArtistSearchRequest): NoOffsetResponseWrapper<ArtistSearchResponse> {
         val artistSearchDomains = artistSearchService.search(request.toCommand())
         val results = artistSearchDomains.map { ArtistSearchResponse(it) }
         return NoOffsetResponseWrapper(results, request.size == results.size.toLong())
