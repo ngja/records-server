@@ -7,11 +7,13 @@ import com.hansol.recordsserver.presentation.common.dto.ImageResponse
 data class ArtistDetailMemberResponse(
     val id: String,
     val name: String,
+    val status: String,
     val image: ImageResponse,
 ) {
     constructor(member: Member) : this(
         id = IdUtils.encode(member.id),
         name = member.name,
+        status = member.status.label,
         image = ImageResponse(member.image),
     )
 }

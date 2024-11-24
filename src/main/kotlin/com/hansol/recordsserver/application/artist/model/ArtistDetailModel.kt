@@ -43,7 +43,7 @@ data class ArtistDetailModel(
         debutDate = artist.debutDate,
         status = artist.status,
         mainImage = artist.mainImage,
-        members = members.members,
+        members = members.getNotLeaveMembers(),
 
         albums = albums.albums,
         songs = songs.songs,

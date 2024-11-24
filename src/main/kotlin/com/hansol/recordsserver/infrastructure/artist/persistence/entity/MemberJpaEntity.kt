@@ -37,6 +37,7 @@ class MemberJpaEntity(
         return Member(
             id = id,
             name = name,
+            status = status,
             image = image.toImage()
         )
     }
