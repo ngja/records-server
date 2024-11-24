@@ -6,7 +6,7 @@ import com.hansol.recordsserver.common.utils.IdUtils
 
 data class ArtistDetailSongResponse(
     val id: String,
-    val record: String,
+    val album: String,
     val title: String,
     val lyrics: String,
     val composition: String,
@@ -15,7 +15,7 @@ data class ArtistDetailSongResponse(
 ) {
     constructor(song: Song) : this(
         id = IdUtils.encode(song.id),
-        record = song.album.name,
+        album = song.album.name,
         title = song.title,
         lyrics = song.lyrics,
         composition = song.composition,
